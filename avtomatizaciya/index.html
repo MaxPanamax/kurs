@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Автоматизация своими руками</title>
+<meta name="description" content="Обучение для руководителей: за шесть месяцев научиться автоматизировать свои процессы и строить ИИ-помощников без подрядчиков.">
+<meta name="theme-color" content="#0E1626">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Автоматизация своими руками">
+<meta property="og:description" content="Для руководителей. Убрать рутину в своём подразделении и строить ботов под свои задачи — без подрядчиков и бюджета на разработку.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%99%EF%B8%8F</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#F5F7FB; --surface:#FFFFFF; --surface-2:#E9EEF6; --deep:#0E1626;
+  --ink:#0E1626; --ink-2:#4C5A72; --ink-3:#7A879C; --on-deep:#E8EDF6; --on-deep-2:#9AAAC4;
+  --rule:#D9E1EE; --rule-2:#E8EDF5; --accent:#2447C9; --accent-bg:#E7ECFB; --amber:#B4750F;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0F18; --surface:#121A27; --surface-2:#182233; --deep:#060A11;
+    --ink:#E7ECF5; --ink-2:#A2AEC4; --ink-3:#78859B; --on-deep:#E7ECF5; --on-deep-2:#95A4BD;
+    --rule:#243044; --rule-2:#1C2635; --accent:#7E9CFF; --accent-bg:#16223F; --amber:#DDA855;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0F18; --surface:#121A27; --surface-2:#182233; --deep:#060A11;
+  --ink:#E7ECF5; --ink-2:#A2AEC4; --ink-3:#78859B; --on-deep:#E7ECF5; --on-deep-2:#95A4BD;
+  --rule:#243044; --rule-2:#1C2635; --accent:#7E9CFF; --accent-bg:#16223F; --amber:#DDA855;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:Manrope,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17px; line-height:1.58; -webkit-font-smoothing:antialiased;
+}
+.band{padding:0 24px}
+.band.deep{background:var(--deep); color:var(--on-deep)}
+.band.alt{background:var(--surface); border-block:1px solid var(--rule-2)}
+.inner{max-width:760px; margin:0 auto; padding:48px 0}
+h1,h2{font-family:Unbounded,Manrope,sans-serif; margin:0; text-wrap:balance}
+h1{font-size:clamp(1.9rem,5.2vw,3rem); font-weight:700; line-height:1.07; letter-spacing:-.035em}
+h2{font-size:clamp(1.25rem,3vw,1.6rem); font-weight:600; line-height:1.18; letter-spacing:-.03em; margin-bottom:18px}
+h3{font-family:Manrope,sans-serif; font-size:1rem; font-weight:700; margin:0}
+p{margin:0 0 .95em}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+.eyebrow{
+  font-family:"JetBrains Mono",monospace; font-size:.7rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin:0 0 16px
+}
+.band.deep .eyebrow{color:var(--amber)}
+.lede{font-size:1.1rem; color:var(--ink-2)}
+.band.deep .lede{color:var(--on-deep-2)}
+
+.hero .inner{padding:72px 0 52px}
+.facts{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule);
+  margin-top:36px; border-radius:4px; overflow:hidden
+}
+.fact{background:var(--bg); padding:15px 17px; display:flex; flex-direction:column; gap:3px}
+.fact .v{font-family:"JetBrains Mono",monospace; font-size:1.2rem; font-weight:700; letter-spacing:-.03em}
+.fact .k{font-size:.78rem; color:var(--ink-3); line-height:1.32}
+
+ul.clean{list-style:none; margin:0 0 .95em; padding:0; display:flex; flex-direction:column; gap:13px}
+ul.clean>li{position:relative; padding-left:24px}
+ul.clean>li::before{content:""; position:absolute; left:2px; top:.56em; width:9px; height:2px; background:var(--accent)}
+.band.deep ul.clean>li::before{background:var(--amber)}
+ul.clean b{font-weight:700}
+
+.scroll{overflow-x:auto; border:1px solid var(--rule); border-radius:5px; background:var(--surface); margin:0 0 .95em}
+table{border-collapse:collapse; width:100%; font-size:.92rem; min-width:480px}
+th,td{text-align:left; padding:12px 16px; border-bottom:1px solid var(--rule-2)}
+thead th{
+  font-family:"JetBrains Mono",monospace; font-size:.66rem; font-weight:500; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); background:var(--surface-2);
+  border-bottom:1px solid var(--rule); white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.num{text-align:right; font-family:"JetBrains Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+td.you{color:var(--accent); font-weight:600}
+
+.note{border-left:3px solid var(--accent); background:var(--accent-bg); padding:16px 20px; border-radius:0 4px 4px 0; margin:0 0 .95em}
+.note p:last-child{margin-bottom:0}
+
+.price{
+  display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--rule);
+  border-radius:5px; overflow:hidden; background:var(--surface); margin-bottom:20px
+}
+.price>div{flex:1 1 200px; padding:20px 22px; border-right:1px solid var(--rule)}
+.price>div:last-child{border-right:none}
+.price .big{font-family:Unbounded,sans-serif; font-size:1.6rem; font-weight:700; letter-spacing:-.04em; display:block; margin-bottom:4px}
+.price .sub{font-size:.87rem; color:var(--ink-2)}
+
+.contacts{display:flex; flex-wrap:wrap; gap:12px 36px; margin-top:22px}
+.contact{display:flex; flex-direction:column; gap:1px}
+.contact .k{font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--on-deep-2)}
+.contact .v{font-size:1.02rem; font-weight:600}
+.contact .v a{color:var(--on-deep); text-decoration-color:var(--amber)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:620px){
+  body{font-size:16px}
+  .inner{padding:38px 0}
+  .hero .inner{padding:52px 0 40px}
+  .price>div{border-right:none; border-bottom:1px solid var(--rule)}
+}
+</style>
+</head>
+<body>
+
+<div class="band hero">
+  <div class="inner">
+    <p class="eyebrow">Для руководителей</p>
+    <h1>Автоматизация своими руками</h1>
+    <p class="lede">За шесть месяцев вы научитесь сами убирать рутину в своей работе: строить ботов и ИИ-помощников под собственные процессы. Без подрядчиков, без заявок в ИТ-отдел и без дорогих готовых решений по подписке.</p>
+    <div class="facts">
+      <div class="fact"><span class="v">6</span><span class="k">месяцев</span></div>
+      <div class="fact"><span class="v">2×</span><span class="k">встречи в неделю</span></div>
+      <div class="fact"><span class="v">до 6</span><span class="k">человек в группе</span></div>
+      <div class="fact"><span class="v">16 000 ₽</span><span class="k">в месяц, всё включено</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="band alt">
+  <div class="inner">
+    <h2>Что вы сможете делать</h2>
+    <ul class="clean">
+      <li><b>Собрать бота</b>, который принимает заявки, отвечает сотрудникам или клиентам, напоминает и ведёт учёт.</li>
+      <li><b>Поставить ИИ-помощника</b> на разбор документов, писем, заявок и отчётов — то, что сейчас читают глазами.</li>
+      <li><b>Связать системы</b>, которые между собой не дружат, чтобы данные перестали переносить руками.</li>
+      <li><b>Автоматизировать любой повторяющийся процесс</b> в своём подразделении. Отрасль и специфика значения не имеют — метод один для всех.</li>
+    </ul>
+    <div class="note">
+      <p><strong>Учимся на вашей задаче.</strong> Приносите реальный процесс из своей работы — на нём и разбираем. К концу обучения он работает автоматически, а не остаётся учебным примером.</p>
+    </div>
+  </div>
+</div>
+
+<div class="band">
+  <div class="inner">
+    <h2>Что это стоит на стороне</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Задача</th><th class="num">Заказать</th><th class="num">Сделать самому</th></tr></thead>
+        <tbody>
+          <tr><td>Бот с интеграцией в CRM или 1С</td><td class="num">от 200 000 ₽</td><td class="num you">0 ₽</td></tr>
+          <tr><td>Автоматизация одного процесса</td><td class="num">50 000 — 150 000 ₽</td><td class="num you">0 ₽</td></tr>
+          <tr><td>Готовая платформа по подписке</td><td class="num">от 2 000 ₽/мес бессрочно</td><td class="num you">0 ₽</td></tr>
+          <tr><td>Каждая доработка</td><td class="num">новый счёт и ожидание</td><td class="num you">в тот же день</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Обучение стоит 96 000 ₽ и окупается на первой же задаче, которую вы больше не отдаёте наружу. Вторую, пятую и двадцатую вы делаете бесплатно.</p>
+  </div>
+</div>
+
+<div class="band alt">
+  <div class="inner">
+    <h2>Почему самому, а не заказать</h2>
+    <ul class="clean">
+      <li><b>Процесс знаете только вы.</b> Подрядчику его надо объяснить, и половина проекта уходит на это. Вы делаете сразу, без переводчика.</li>
+      <li><b>Доработки бесконечны.</b> Любое изменение — новая заявка, новый счёт, новые сроки. Свою систему вы правите в тот же день.</li>
+      <li><b>Данные остаются внутри.</b> Ни процессы, ни документы, ни клиентская база не уезжают в чужой сервис и к чужим людям.</li>
+      <li><b>Вы перестаёте зависеть.</b> Ни от бюджета на разработку, ни от очереди в ИТ-отделе, ни от того, жив ли ещё ваш подрядчик.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band">
+  <div class="inner">
+    <h2>Формат и цена</h2>
+    <ul class="clean">
+      <li>Две встречи в неделю по 2 часа 50 минут. Группа от четырёх до шести человек, больше не набираю.</li>
+      <li>Очно. Не смогли приехать — подключаетесь онлайн, ничего не пропускаете.</li>
+      <li>Программа подстраивается под задачи группы. Общего потока и обязательного плана нет.</li>
+    </ul>
+    <div class="price">
+      <div><span class="big">16 000 ₽</span><span class="sub">в месяц, всё включено</span></div>
+      <div><span class="big">90 000 ₽</span><span class="sub">за весь курс при оплате сразу</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--ink-3)">Оплата вперёд — за месяц, за три или за курс целиком. Помесячно вы каждый месяц решаете заново, продолжать или нет.</p>
+  </div>
+</div>
+
+<div class="band deep">
+  <div class="inner">
+    <p class="eyebrow">Кто ведёт</p>
+    <h2 style="color:var(--on-deep)">Действующий разработчик</h2>
+    <ul class="clean">
+      <li>Автоматизация бизнес-процессов — основное направление работы. Коммерческая разработка: боты, веб-приложения, интеграции.</li>
+      <li>Государственные проекты: системы машинного зрения, цифровые аватары, тренажёры для VR-шлемов.</li>
+      <li>Преподаю в государственной программе «Код будущего» и в Академии ТОП. Экономист, программист, педагог.</li>
+    </ul>
+    <p class="lede" style="margin-top:20px">Не преподаватель, который когда-то программировал. Приношу на занятие задачи, которые решал на этой неделе.</p>
+    <div class="contacts">
+      <div class="contact"><span class="k">Телеграм</span><span class="v"><a href="https://t.me/Maksim_11_02_22">@Maksim_11_02_22</a></span></div>
+      <div class="contact"><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/79814680282">+7 981 468-02-82</a></span></div>
+    </div>
+    <p style="color:var(--on-deep-2);font-size:.88rem;margin:18px 0 0">Напишите — за пятнадцать минут разберём ваш процесс и я скажу прямо, стоит ли он автоматизации.</p>
+  </div>
+</div>
+
+</body>
+</html>
