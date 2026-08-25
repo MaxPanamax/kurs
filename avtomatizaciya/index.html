@@ -97,6 +97,24 @@ td.you{color:var(--accent); font-weight:600}
 .price .big{font-family:Unbounded,sans-serif; font-size:1.6rem; font-weight:700; letter-spacing:-.04em; display:block; margin-bottom:4px}
 .price .sub{font-size:.87rem; color:var(--ink-2)}
 
+.months{display:flex; flex-direction:column; margin-bottom:.95em}
+.month{display:grid; grid-template-columns:74px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--rule)}
+.month:last-child{border-bottom:1px solid var(--rule)}
+.month .n{font-family:"JetBrains Mono",monospace; font-size:1.3rem; font-weight:700; color:var(--accent); letter-spacing:-.04em; line-height:1}
+.month .n small{display:block; font-size:.58rem; font-weight:500; letter-spacing:.14em; color:var(--ink-3); margin-top:6px}
+.month .body{display:flex; flex-direction:column; gap:6px}
+.month .body p{margin:0; color:var(--ink-2); font-size:.93rem}
+.month .shared{
+  font-family:"JetBrains Mono",monospace; font-size:.62rem; font-weight:600; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-bg);
+  border-radius:3px; padding:3px 7px; align-self:flex-start
+}
+@media (max-width:620px){
+  .month{grid-template-columns:1fr; gap:8px}
+  .month .n{font-size:1.1rem}
+  .month .n small{display:inline; margin-left:9px}
+}
+
 .contacts{display:flex; flex-wrap:wrap; gap:12px 36px; margin-top:22px}
 .contact{display:flex; flex-direction:column; gap:1px}
 .contact .k{font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--on-deep-2)}
@@ -145,6 +163,59 @@ td.you{color:var(--accent); font-weight:600}
 
 <div class="band">
   <div class="inner">
+    <h2>Программа</h2>
+    <p class="lede" style="margin-bottom:24px">Первые два месяца — фундамент, одинаковый для всех. Дальше вся программа идёт вокруг ваших процессов.</p>
+    <div class="months">
+      <div class="month">
+        <span class="n">01<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <span class="shared">Общая часть</span>
+          <h3>Фундамент и рабочее место</h3>
+          <p>Как устроены системы и данные. Настраиваем инструменты, с которыми будете работать: редактор, ИИ-помощник, хранилище версий.</p>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">02<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <span class="shared">Общая часть</span>
+          <h3>Код вместе с ИИ</h3>
+          <p>Как читать и писать код с помощью искусственного интеллекта. Логика, данные, API — язык, на котором между собой говорят все ваши программы.</p>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">03<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Разбор своих процессов</h3>
+          <p>Берём ваш реальный процесс, раскладываем на шаги, считаем стоимость рутины в часах и в деньгах. Выбираем, что автоматизировать первым и что даст отдачу быстрее всего.</p>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">04<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Интеграции и данные</h3>
+          <p>Связываем то, что между собой не дружит: CRM, 1С, таблицы, почта, мессенджеры, внутренние системы. Данные перестают переноситься руками.</p>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">05<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>ИИ-агенты и боты под свои задачи</h3>
+          <p>Помощник, который разбирает документы, заявки и письма, готовит отчёты и отвечает сотрудникам. Собранный с нуля под ваш процесс, а не купленный готовым за подписку.</p>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">06<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Внедрение и устойчивость</h3>
+          <p>Запуск в работу подразделения. Доступы, безопасность, что делать при сбое. И главное — как передать это сотруднику, чтобы вы не остались единственным человеком, который понимает, как оно работает.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="band alt">
+  <div class="inner">
     <h2>Что это стоит на стороне</h2>
     <div class="scroll">
       <table>
@@ -161,7 +232,7 @@ td.you{color:var(--accent); font-weight:600}
   </div>
 </div>
 
-<div class="band alt">
+<div class="band">
   <div class="inner">
     <h2>Почему самому, а не заказать</h2>
     <ul class="clean">
@@ -173,7 +244,7 @@ td.you{color:var(--accent); font-weight:600}
   </div>
 </div>
 
-<div class="band">
+<div class="band alt">
   <div class="inner">
     <h2>Формат и цена</h2>
     <ul class="clean">
@@ -186,6 +257,9 @@ td.you{color:var(--accent); font-weight:600}
       <div><span class="big">90 000 ₽</span><span class="sub">за весь курс при оплате сразу</span></div>
     </div>
     <p style="font-size:.9rem;color:var(--ink-3)">Оплата вперёд — за месяц, за три или за курс целиком. Помесячно вы каждый месяц решаете заново, продолжать или нет.</p>
+    <div class="note" style="margin-top:22px">
+      <p><strong>Есть второе направление.</strong> С третьего месяца программа расходится: это — для тех, кто автоматизирует собственную работу. Если цель другая, сменить профессию или брать заказы, — <a href="/kurs/">вторая программа здесь</a>. Первые два месяца одинаковые, определиться можно и по ходу.</p>
+    </div>
   </div>
 </div>
 
