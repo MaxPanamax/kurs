@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Обучение автоматизации процессов, ИИ-агентам и разработке. Шесть месяцев, группа до шести человек, выход на биржу заказов.">
+<meta name="theme-color" content="#0E1626">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Шесть месяцев до первого заказа">
+<meta property="og:description" content="Автоматизация, ИИ-агенты, сайты и приложения. Ведёт действующий разработчик. Группа до шести человек, 16 000 ₽ в месяц.">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%8C%A8%EF%B8%8F</text></svg>">
+<title>Шесть месяцев до первого заказа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root {
+  --bg:        #F5F7FB;
+  --surface:   #FFFFFF;
+  --surface-2: #E9EEF6;
+  --deep:      #0E1626;
+  --deep-2:    #17233A;
+  --ink:       #0E1626;
+  --ink-2:     #4C5A72;
+  --ink-3:     #7A879C;
+  --on-deep:   #E8EDF6;
+  --on-deep-2: #9AAAC4;
+  --rule:      #D9E1EE;
+  --rule-2:    #E8EDF5;
+  --accent:    #2447C9;
+  --accent-bg: #E7ECFB;
+  --amber:     #B4750F;
+  --amber-bg:  #FBF0DC;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0A0F18;
+    --surface:   #121A27;
+    --surface-2: #182233;
+    --deep:      #060A11;
+    --deep-2:    #101827;
+    --ink:       #E7ECF5;
+    --ink-2:     #A2AEC4;
+    --ink-3:     #78859B;
+    --on-deep:   #E7ECF5;
+    --on-deep-2: #95A4BD;
+    --rule:      #24304492;
+    --rule-2:    #1C2635;
+    --accent:    #7E9CFF;
+    --accent-bg: #16223F;
+    --amber:     #DDA855;
+    --amber-bg:  #2A2113;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #0A0F18;
+  --surface:   #121A27;
+  --surface-2: #182233;
+  --deep:      #060A11;
+  --deep-2:    #101827;
+  --ink:       #E7ECF5;
+  --ink-2:     #A2AEC4;
+  --ink-3:     #78859B;
+  --on-deep:   #E7ECF5;
+  --on-deep-2: #95A4BD;
+  --rule:      #243044;
+  --rule-2:    #1C2635;
+  --accent:    #7E9CFF;
+  --accent-bg: #16223F;
+  --amber:     #DDA855;
+  --amber-bg:  #2A2113;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Manrope, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.band { padding: 0 24px; }
+.band.alt { background: var(--surface); border-block: 1px solid var(--rule-2); }
+.band.deep { background: var(--deep); color: var(--on-deep); }
+.inner { max-width: 1080px; margin: 0 auto; padding: 76px 0; }
+.col { max-width: 720px; }
+
+h1, h2, h3 { font-family: Unbounded, Manrope, sans-serif; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 5.6vw, 3.5rem); font-weight: 700; line-height: 1.06; letter-spacing: -.035em; }
+h2 { font-size: clamp(1.4rem, 3.4vw, 2.1rem); font-weight: 600; line-height: 1.14; letter-spacing: -.03em; }
+h3 { font-size: 1.12rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.3; }
+h4 { font-family: Manrope, sans-serif; font-size: 1rem; font-weight: 700; margin: 0; }
+p  { margin: 0 0 1.05em; }
+a  { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+strong { font-weight: 700; }
+
+.eyebrow {
+  font-family: "JetBrains Mono", monospace; font-size: .7rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--accent);
+}
+.band.deep .eyebrow { color: var(--amber); }
+.lede { font-size: 1.14rem; color: var(--ink-2); }
+.band.deep .lede { color: var(--on-deep-2); }
+.head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+
+/* ---------- hero ---------- */
+.hero .inner { padding: 96px 0 72px; }
+.hero h1 { margin-bottom: 20px; }
+.hero .lede { max-width: 640px; }
+.facts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  margin-top: 48px; border-radius: 4px; overflow: hidden;
+}
+.fact { background: var(--bg); padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; }
+.fact .v {
+  font-family: "JetBrains Mono", monospace; font-size: 1.35rem; font-weight: 700;
+  color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -.03em;
+}
+.fact .k { font-size: .8rem; color: var(--ink-3); line-height: 1.35; }
+
+/* ---------- lists ---------- */
+ul.clean { list-style: none; margin: 0 0 1.05em; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+ul.clean > li { position: relative; padding-left: 24px; }
+ul.clean > li::before {
+  content: ""; position: absolute; left: 2px; top: .58em; width: 9px; height: 2px; background: var(--accent);
+}
+.band.deep ul.clean > li::before { background: var(--amber); }
+
+/* ---------- cards ---------- */
+.grid { display: grid; gap: 16px; }
+@media (min-width: 720px) { .grid.two { grid-template-columns: 1fr 1fr; } .grid.three { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 5px;
+  padding: 22px 24px; display: flex; flex-direction: column; gap: 9px;
+}
+.band.alt .card { background: var(--bg); }
+.card p { margin: 0; font-size: .95rem; color: var(--ink-2); }
+.card .tag {
+  font-family: "JetBrains Mono", monospace; font-size: .68rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+
+/* ---------- program ladder ---------- */
+.months { display: flex; flex-direction: column; }
+.month {
+  display: grid; grid-template-columns: 92px 1fr; gap: 26px;
+  padding: 26px 0; border-top: 1px solid var(--rule);
+}
+.month:last-child { border-bottom: 1px solid var(--rule); }
+.month .n {
+  font-family: "JetBrains Mono", monospace; font-size: 1.7rem; font-weight: 700;
+  color: var(--accent); letter-spacing: -.04em; line-height: 1;
+}
+.month .n small { display: block; font-size: .62rem; font-weight: 500; letter-spacing: .14em; color: var(--ink-3); margin-top: 7px; }
+.month .body { display: flex; flex-direction: column; gap: 8px; }
+.month .body p { margin: 0; color: var(--ink-2); font-size: .96rem; }
+.month .out {
+  font-family: "JetBrains Mono", monospace; font-size: .76rem; color: var(--amber);
+  background: var(--amber-bg); border-radius: 3px; padding: 6px 10px; align-self: flex-start;
+}
+
+/* ---------- table ---------- */
+.scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 5px; background: var(--surface); margin-bottom: 1.05em; }
+table { border-collapse: collapse; width: 100%; font-size: .94rem; min-width: 520px; }
+th, td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--rule-2); }
+thead th {
+  font-family: "JetBrains Mono", monospace; font-size: .68rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  background: var(--surface-2); border-bottom: 1px solid var(--rule); white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tbody tr.hl td { background: var(--accent-bg); font-weight: 700; }
+
+/* ---------- price ---------- */
+.pricebox {
+  display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--rule);
+  border-radius: 5px; overflow: hidden; margin-bottom: 26px; background: var(--surface);
+}
+.pricebox > div { flex: 1 1 220px; padding: 24px 26px; border-right: 1px solid var(--rule); }
+.pricebox > div:last-child { border-right: none; }
+.pricebox .big {
+  font-family: Unbounded, sans-serif; font-size: 1.9rem; font-weight: 700;
+  letter-spacing: -.04em; line-height: 1.1; display: block; margin-bottom: 6px;
+}
+.pricebox .sub { font-size: .9rem; color: var(--ink-2); }
+
+/* ---------- real case ---------- */
+.case {
+  background: var(--deep); color: var(--on-deep); border-radius: 6px;
+  padding: 34px 36px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 38px;
+}
+.case .k {
+  font-family: "JetBrains Mono", monospace; font-size: .7rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--amber);
+}
+.case .big {
+  font-family: Unbounded, sans-serif; font-size: clamp(1.5rem, 3.6vw, 2.15rem);
+  font-weight: 600; letter-spacing: -.03em; line-height: 1.16; color: var(--on-deep);
+}
+.case p { margin: 0; color: var(--on-deep-2); font-size: 1rem; max-width: 62ch; }
+@media (max-width: 620px) { .case { padding: 26px 22px; } }
+
+/* ---------- steps ---------- */
+ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+ol.steps > li { counter-increment: s; position: relative; padding-left: 50px; }
+ol.steps > li::before {
+  content: counter(s); position: absolute; left: 0; top: -1px;
+  font-family: "JetBrains Mono", monospace; font-size: .82rem; font-weight: 700;
+  width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%;
+  color: var(--accent); border: 1.5px solid var(--accent);
+}
+.band.deep ol.steps > li::before { color: var(--amber); border-color: var(--amber); }
+
+/* ---------- note ---------- */
+.note {
+  border-left: 3px solid var(--accent); background: var(--accent-bg);
+  padding: 18px 22px; border-radius: 0 4px 4px 0; margin-bottom: 1.05em;
+}
+.note p:last-child { margin-bottom: 0; }
+.note strong { color: var(--ink); }
+
+/* ---------- contacts ---------- */
+.contacts { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 26px; }
+.contact { display: flex; flex-direction: column; gap: 2px; }
+.contact .k { font-family: "JetBrains Mono", monospace; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--on-deep-2); }
+.contact .v { font-size: 1.05rem; font-weight: 600; }
+.contact .v a { color: var(--on-deep); text-decoration-color: var(--amber); }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .inner { padding: 56px 0; }
+  .hero .inner { padding: 64px 0 52px; }
+  .month { grid-template-columns: 1fr; gap: 10px; }
+  .month .n { font-size: 1.3rem; }
+  .month .n small { display: inline; margin-left: 10px; }
+  .pricebox > div { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="band hero">
+  <div class="inner">
+    <div class="col">
+      <p class="eyebrow" style="margin:0 0 18px">Автоматизация процессов · ИИ-агенты · Разработка</p>
+      <h1>Шесть месяцев до первого заказа</h1>
+      <p class="lede">Я действующий разработчик — не преподаватель, который когда-то писал код. Учу тому, что делаю каждый день: автоматизации процессов, ИИ-агентам и помощникам, сайтам и приложениям. Группа до шести человек, живые встречи, задачи из реальной работы — и собственная биржа заказов, где выпускники берут первую оплачиваемую работу.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="v">6</span><span class="k">месяцев обучения</span></div>
+      <div class="fact"><span class="v">2×</span><span class="k">встречи в неделю по 2 ч 50 мин</span></div>
+      <div class="fact"><span class="v">136</span><span class="k">часов живой работы</span></div>
+      <div class="fact"><span class="v">4—6</span><span class="k">человек в группе, больше не беру</span></div>
+      <div class="fact"><span class="v">16 000 ₽</span><span class="k">в месяц, всё включено</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ КОМУ ============ -->
+<div class="band alt">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Кому подойдёт</span>
+      <h2>Каждый приходит со своей задачей</h2>
+      <p class="lede">Люди в группе идут за разным, и это нормально. В группе до шести человек я успеваю вести каждого к его собственному результату, а не гнать всех по одной программе.</p>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <span class="tag">Задача 1</span>
+        <h3>Сменить профессию</h3>
+        <p>Уйти из того, что надоело, в специальность, с которой можно работать откуда угодно и на себя. Программа выстраивается до портфолио и первого заказа.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Задача 2</span>
+        <h3>Автоматизировать свои процессы</h3>
+        <p>У вас свой бизнес или участок работы, где половина времени уходит на ручную рутину. Учимся убирать её: связывать сервисы, ставить ботов и ИИ-помощников на повторяющиеся задачи.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Задача 3</span>
+        <h3>Найти подработку</h3>
+        <p>Основную работу вы бросать не собираетесь, но хотите вторые деньги по вечерам. Небольшие заказы — сайты, боты, автоматизация — берутся именно так.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Задача 4</span>
+        <h3>Уйти на удалённую работу</h3>
+        <p>Не привязываться к городу и офису. Для этого нужны не корочки, а работы, которые можно показать, и умение довести заказ до сдачи.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ КТО ВЕДЁТ ============ -->
+<div class="band">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Преподаватель</span>
+      <h2>Опыт не академический, а сегодняшний</h2>
+    </div>
+    <div class="col">
+      <p>Я не преподаватель, который когда-то программировал. Я пишу код на заказ сейчас и приношу на занятие задачи, которые решал на этой неделе. Всё, чему учу, проверено на живых проектах, за которые мне заплатили.</p>
+      <ul class="clean">
+        <li><strong>Автоматизация бизнес-процессов.</strong> Основное направление работы: убираю ручную рутину, связываю сервисы между собой, ставлю ИИ-помощников на повторяющиеся задачи.</li>
+        <li><strong>Коммерческая разработка.</strong> Сайты, веб-приложения, Telegram-боты для компаний и предпринимателей.</li>
+        <li><strong>Государственные проекты.</strong> Системы машинного зрения, цифровые аватары, тренажёры для VR-шлемов.</li>
+        <li><strong>Собственные продукты.</strong> В том числе биржа «Техзад», на которой студенты берут первые заказы.</li>
+        <li><strong>Преподавание.</strong> Государственная программа «Код будущего», Академия ТОП, собственные группы.</li>
+        <li><strong>Экономист, программист, педагог.</strong> Три направления образования — поэтому вижу задачу целиком: и как её сделать технически, и сколько она сэкономит бизнесу, и как объяснить это человеку, который начинает с нуля.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ЧЕМУ ============ -->
+<div class="band alt">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Предмет</span>
+      <h2>Шесть направлений, автоматизация в центре</h2>
+    </div>
+    <div class="grid three">
+      <div class="card">
+        <h3>Автоматизация процессов</h3>
+        <p>Главное направление. Находим ручную рутину, считаем, сколько она стоит в часах и деньгах, и убираем её. Связываем сервисы между собой через интеграции и API.</p>
+      </div>
+      <div class="card">
+        <h3>ИИ-агенты и помощники</h3>
+        <p>Не чат для развлечения, а работник. Агент, который сам отвечает клиентам, разбирает заявки, собирает данные, готовит документы и не уходит на обед.</p>
+      </div>
+      <div class="card">
+        <h3>Боты и приложения</h3>
+        <p>Telegram-боты с приёмом оплаты, веб-приложения с админкой. Самый ходовой заказ на рынке и самый быстрый способ выйти на первые деньги.</p>
+      </div>
+      <div class="card">
+        <h3>Сайты и интерфейсы</h3>
+        <p>Вёрстка, адаптив под телефон, живая логика на странице. С этого начинают и это же продают чаще всего.</p>
+      </div>
+      <div class="card">
+        <h3>Данные, сервер, безопасность</h3>
+        <p>Где живут данные и как их не потерять. Базы данных, публикация на сервере, домен, пароли и доступы. Что делать, когда всё упало в пятницу вечером.</p>
+      </div>
+      <div class="card">
+        <h3>Контент на потоке</h3>
+        <p>Производство контента с помощью ИИ: тексты, картинки, видео, поставленные на конвейер. Отдельное направление, на котором тоже зарабатывают.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ПРОГРАММА ============ -->
+<div class="band">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Программа</span>
+      <h2>Что происходит по месяцам</h2>
+      <p class="lede">Каждый месяц заканчивается работающей вещью, а не зачётом. К шестому месяцу этих вещей набирается на портфолио.</p>
+    </div>
+    <div class="months">
+      <div class="month">
+        <span class="n">01<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Фундамент и рабочее место</h3>
+          <p>Как устроен компьютер и как «думает» модель. Терминал, Git, редактор кода, ИИ-помощник. Разбираемся, из чего вообще состоит интернет.</p>
+          <span class="out">Итог: ваш первый сайт открывается по ссылке</span>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">02<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Сайты и интерфейсы</h3>
+          <p>HTML, CSS, JavaScript. Вёрстка, адаптив под телефон, интерактив. Учимся делать так, чтобы выглядело дорого, и писать код вместе с ИИ, а не вместо мозга.</p>
+          <span class="out">Итог: сайт, который не стыдно показать заказчику</span>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">03<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Автоматизация процессов</h3>
+          <p>Ядро курса. Берём реальный процесс — ваш рабочий или заказчика — раскладываем на шаги и убираем ручной труд. Интеграции, API, обмен данными между сервисами. Учимся считать выгоду в часах и рублях: это то, чем автоматизация продаётся.</p>
+          <span class="out">Итог: первая автоматизация, которая экономит живые часы</span>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">04<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>ИИ-агенты и боты</h3>
+          <p>Помощник, который работает сам: отвечает клиентам, разбирает заявки, вытаскивает данные из документов, готовит ответы. Telegram-бот с приёмом оплаты. Базы данных под всё это.</p>
+          <span class="out">Итог: работающий ИИ-агент и бот с оплатой</span>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">05<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Запуск в мир</h3>
+          <p>Сервер, домен, публикация. Безопасность: пароли, доступы, персональные данные. Что делать, когда всё сломалось в пятницу вечером.</p>
+          <span class="out">Итог: проект живёт в интернете на своём домене</span>
+        </div>
+      </div>
+      <div class="month">
+        <span class="n">06<small>МЕСЯЦ</small></span>
+        <div class="body">
+          <h3>Контент и первые деньги</h3>
+          <p>Производство контента на ИИ, поставленное на поток. Портфолио и упаковка себя. Разбор настоящих технических заданий с биржи, разговор о сроках и цене. Дипломный проект — и отклик на первый реальный заказ.</p>
+          <span class="out">Итог: портфолио и аккаунт исполнителя на бирже</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ПОЧЕМУ НЕ УЧЕБНОЕ ЗАВЕДЕНИЕ ============ -->
+<div class="band alt">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Отличие</span>
+      <h2>Чем это отличается от курсов в учебном заведении</h2>
+      <p class="lede">Я сам преподаю в государственной программе и в академии, поэтому знаю эту кухню изнутри. Там есть сильные стороны — но есть и то, чего там не исправить в принципе.</p>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <span class="tag">Как устроено там</span>
+        <h3>Программа утверждается заранее</h3>
+        <p>Учебный план пишут и согласовывают задолго до начала и потом живут по нему годами. В искусственном интеллекте год — это эпоха: инструменты, которыми я работаю сегодня, год назад просто не существовали. К моменту, когда новое попадёт в утверждённый план, оно успеет устареть.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Как устроено здесь</span>
+        <h3>Программу веду по рынку</h3>
+        <p>Смотрю, что реально заказывают и за что платят прямо сейчас, и меняю содержание внутри курса, не дожидаясь следующего учебного года. Вышел новый инструмент — разбираем его на ближайшем занятии, а не через два года.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Как устроено там</span>
+        <h3>Половина часов — воздух</h3>
+        <p>В план закладывают обязательные блоки, потому что так требует отчётность, а не потому что они нужны в работе. Вы оплачиваете все часы, а пользуетесь потом четвертью.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Как устроено здесь</span>
+        <h3>Только то, что применяется</h3>
+        <p>Каждая тема попадает в программу по одному признаку: за это платят или без этого не сделать то, за что платят. Тему, которая группе не нужна, я сворачиваю. Ту, которая нужна, — разворачиваю на столько занятий, сколько потребуется.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Как устроено там</span>
+        <h3>Преподаватель связан планом</h3>
+        <p>Даже когда он видит, что группе нужно другое, отклониться нельзя: есть план, есть отчётность, есть проверка. Хороший преподаватель в этой системе связан по рукам.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Как устроено здесь</span>
+        <h3>Отчитываюсь только результатом</h3>
+        <p>Надо мной нет ни плана, ни методиста. Единственная проверка — работает ваш проект или нет, взяли вы заказ или нет. Это видно без всякой аттестации.</p>
+      </div>
+    </div>
+    <div class="col" style="margin-top:28px">
+      <div class="note">
+        <p><strong>Честно о том, чего здесь нет.</strong> Я не даю диплом государственного образца. Если он нужен для отдела кадров — идите в академию, это правильный выбор. Если нужны работающие проекты в портфолио и первые деньги за заказ — сюда.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ БИРЖА ============ -->
+<div class="band deep">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Чего нет у других</span>
+      <h2>Своя биржа заказов «Техзад»</h2>
+    </div>
+    <div class="col">
+      <p class="lede">Это моя собственная площадка. Заказчик описывает идею обычными словами, ИИ-помощник собирает из этого техническое задание, а исполнитель получает заказ, где уже написано, что именно надо сделать.</p>
+      <p style="color:var(--on-deep-2)">Самое тяжёлое в первом заказе — не написать код. Тяжело понять, чего от вас хотят, и не утонуть в переделках. На бирже техзадание уже собрано: остаётся выполнить работу и получить деньги. Для новичка это разница между «страшно взяться» и «сделал и сдал».</p>
+      <ul class="clean">
+        <li>Заказы: сайты, интернет-магазины, приложения, Telegram-боты, дизайн, продвижение.</li>
+        <li>Готовое техническое задание к каждому заказу — не надо вытягивать требования из заказчика.</li>
+        <li>Выпускники курса заходят на биржу как исполнители с уже собранным портфолио.</li>
+      </ul>
+      <p style="margin-top:22px"><a href="https://techzad.ru" style="color:var(--amber);font-weight:600">techzad.ru — посмотреть площадку</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ФОРМАТ ============ -->
+<div class="band alt">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Формат</span>
+      <h2>Как проходят занятия</h2>
+    </div>
+    <div class="col">
+      <ul class="clean">
+        <li><strong>Две встречи в неделю по 2 часа 50 минут.</strong> Две пары с перерывом между ними.</li>
+        <li><strong>Группа от четырёх до шести человек.</strong> Больше шести не набираю: в большой группе кто-то обязательно потеряется, а я хочу видеть каждого.</li>
+        <li><strong>Очно, в классе.</strong> Не смогли прийти — подключаетесь к занятию онлайн, ничего не пропускаете.</li>
+        <li><strong>Ближе к концу курса</strong> группа по общей договорённости может перейти полностью в онлайн — когда работа уже идёт самостоятельно и ездить незачем. Цена при этом не меняется, экономятся ваше время и дорога.</li>
+        <li><strong>136 часов живой работы</strong> за шесть месяцев — с преподавателем в одной комнате, а не с записью.</li>
+      </ul>
+      <div class="note">
+        <p><strong>Почему не поток на сто человек.</strong> В группе до шести я успеваю за одно занятие подойти к каждому и посмотреть его код. Именно это и отличает результат «научился» от результата «посмотрел».</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ЦЕНА ============ -->
+<div class="band">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Стоимость</span>
+      <h2>Сколько стоит и из чего складывается</h2>
+    </div>
+    <div class="pricebox">
+      <div>
+        <span class="big">16 000 ₽</span>
+        <span class="sub">в месяц, всё включено</span>
+      </div>
+      <div>
+        <span class="big">96 000 ₽</span>
+        <span class="sub">за весь курс, шесть месяцев</span>
+      </div>
+      <div>
+        <span class="big">≈ 700 ₽</span>
+        <span class="sub">за час занятия в группе до шести человек</span>
+      </div>
+    </div>
+    <div class="col">
+      <p>Одна цифра, и больше ничего. Аренда класса уже внутри — доплачивать за помещение не нужно, и цена не меняется от того, сколько человек набралось в группу.</p>
+      <p>В пересчёте на час выходит около <strong>700 ₽</strong>. Для сравнения: час индивидуальной работы со мной стоит 3 500 ₽. За те же деньги в группе до шести человек вы получаете в пять раз больше времени со мной.</p>
+      <h3 style="margin:34px 0 10px">Заплатить можно тремя способами</h3>
+      <p>Оплата всегда вперёд — за месяц, за три месяца или сразу за курс. Разница только в размере скидки.</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Как платить</th><th class="num">Сумма</th><th class="num">В месяц</th><th class="num">Экономия</th><th>Условие</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Помесячно</td><td class="num">16 000 ₽</td><td class="num">16 000 ₽</td><td class="num">—</td><td>решаете заново каждый месяц</td></tr>
+          <tr><td>Сразу за 3 месяца</td><td class="num">46 500 ₽</td><td class="num">15 500 ₽</td><td class="num">1 500 ₽</td><td>оплаченные месяцы не возвращаются</td></tr>
+          <tr class="hl"><td>Сразу за весь курс</td><td class="num">90 000 ₽</td><td class="num">15 000 ₽</td><td class="num">6 000 ₽</td><td>оплаченные месяцы не возвращаются</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <p><strong>Помесячная оплата — полноценный вариант, а не наказание.</strong> Вносите в начале месяца, занимаетесь месяц, а в конце решаете заново: идти дальше или нет. Ничего никому не должны и никаких обязательств на будущее не берёте. Если не уверены — берите именно её, я всем так и советую на старте.</p>
+      <p><strong>Скидка даётся за обязательство.</strong> Оплачивая вперёд, вы закрепляете за собой место в группе на весь срок — я перестаю его предлагать другим и рассчитываю программу под этот состав. Поэтому оплаченные месяцы не возвращаются: это и есть та цена, за которую даётся скидка. Кому нужна свобода выйти в любой момент — она есть, просто без скидки.</p>
+      <p><strong>Оплатив вперёд, вы фиксируете цену.</strong> Сколько заплатили — столько и стоит до конца оплаченного срока, что бы ни происходило со стоимостью обучения дальше. При помесячной оплате цена может измениться.</p>
+      <div class="note">
+        <p><strong>Если обстоятельства изменились, оплаченное не сгорает.</strong> Деньги я не возвращаю, но место сохраняется: вы можете доучиться в следующем потоке или передать оплаченные месяцы другому человеку. Пропасть впустую они не могут.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ОКУПАЕМОСТЬ ============ -->
+<div class="band alt">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Окупаемость</span>
+      <h2>Курс окупается одной работой</h2>
+      <p class="lede">96 000 ₽ за полгода — это не расход, а вложение с очень коротким сроком возврата. Одна средняя работа, которую вы сможете взять уже к концу обучения, закрывает всю стоимость курса. Всё, что заработано дальше, — ваше.</p>
+    </div>
+
+    <div class="case">
+      <span class="k">Так уже было</span>
+      <span class="big">Моя студентка продала свой первый сайт за 100 000 ₽ — ровно столько, сколько отдала за всё обучение.</span>
+      <p>Обучение окупилось одной работой. Это не расчёт на бумаге и не обещание из рекламы — это уже произошло, с человеком, который начинал с нуля в моей группе.</p>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Что делает начинающий разработчик</th><th class="num">Сколько за это платят</th><th class="num">Доля стоимости курса</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Лендинг</td><td class="num">20 000 — 50 000 ₽</td><td class="num">до 52 %</td></tr>
+          <tr><td>Сайт-визитка</td><td class="num">25 000 — 60 000 ₽</td><td class="num">до 63 %</td></tr>
+          <tr><td>Telegram-бот</td><td class="num">30 000 — 80 000 ₽</td><td class="num">до 83 %</td></tr>
+          <tr class="hl"><td>Интернет-магазин</td><td class="num">50 000 — 100 000 ₽</td><td class="num">до 100 %</td></tr>
+          <tr class="hl"><td>Автоматизация одного процесса</td><td class="num">50 000 — 150 000 ₽</td><td class="num">до 156 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <p style="font-size:.88rem;color:var(--ink-3)">Диапазоны — по открытым прайсам студий и фриланс-бирж на 2026 год. Взята нижняя, а не рекламная граница: это то, что реально получает исполнитель без имени и портфолио на десять лет.</p>
+    </div>
+
+    <div class="pricebox" style="margin-top:34px">
+      <div>
+        <span class="big">1 заказ</span>
+        <span class="sub">на автоматизацию или интернет-магазин — и полгода обучения окуплены полностью</span>
+      </div>
+      <div>
+        <span class="big">2—3 заказа</span>
+        <span class="sub">лендингов или сайтов-визиток дают тот же результат</span>
+      </div>
+    </div>
+
+    <div class="col" style="margin-top:34px">
+      <h3 style="margin-bottom:12px">А если вы не берёте заказы, а автоматизируете себя</h3>
+      <p>Тогда считается иначе, и получается ещё выгоднее. Внедрение автоматизации одного процесса малому бизнесу на рынке стоит 50 000 — 150 000 ₽ и окупается за три-шесть месяцев. То есть первая же задача, которую вы сделаете себе сами, закрывает стоимость курса — и вы за неё никому не платите.</p>
+      <p>А дальше вторую, третью и десятую автоматизацию вы делаете уже бесплатно. Навык остаётся с вами: заказ сдаётся один раз, а делать такие вещи вы будете годами.</p>
+      <div class="note">
+        <p><strong>Без обещаний.</strong> Я не говорю, что заказ упадёт на следующий день после выпуска — так не бывает, и обещать это нечестно. Я говорю о другом: рыночные цены именно такие, а значит порог окупаемости у вас очень низкий. Нужна одна работа, а не двадцать.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ КАК ПОПАСТЬ ============ -->
+<div class="band deep">
+  <div class="inner">
+    <div class="col head">
+      <span class="eyebrow">Дальше</span>
+      <h2>Как попасть в группу</h2>
+    </div>
+    <div class="col">
+      <ol class="steps">
+        <li>
+          <h4>Короткий разговор</h4>
+          <p style="color:var(--on-deep-2);margin:4px 0 0">Пятнадцать минут по телефону или в Телеграме. Я спрашиваю, чего вы хотите и сколько времени готовы вкладывать, вы спрашиваете всё, что хотите знать. Если вижу, что вам это не подойдёт, — скажу прямо.</p>
+        </li>
+        <li>
+          <h4>Собираем группу и расписание</h4>
+          <p style="color:var(--on-deep-2);margin:4px 0 0">Четыре—шесть человек, дни и время подбираем под группу. Стартуем, когда набрались все.</p>
+        </li>
+        <li>
+          <h4>Первая встреча</h4>
+          <p style="color:var(--on-deep-2);margin:4px 0 0">Знакомство с форматом и настройка рабочего места. К концу первого занятия у вас уже работает редактор, ИИ-помощник и репозиторий.</p>
+        </li>
+      </ol>
+      <div class="contacts">
+        <div class="contact">
+          <span class="k">Телеграм</span>
+          <span class="v"><a href="https://t.me/Maksim_11_02_22">@Maksim_11_02_22</a></span>
+        </div>
+        <div class="contact">
+          <span class="k">WhatsApp</span>
+          <span class="v"><a href="https://wa.me/79814680282">+7 981 468-02-82</a></span>
+        </div>
+        <div class="contact">
+          <span class="k">Почта</span>
+          <span class="v"><a href="mailto:makspanama43@gmail.com">makspanama43@gmail.com</a></span>
+        </div>
+      </div>
+      <p style="color:var(--on-deep-2);font-size:.9rem;margin:22px 0 0">Пишите в Телеграм или WhatsApp — там отвечаю быстрее всего. Звонок с незнакомого номера у меня не пройдёт: телефон принимает вызовы только от контактов из записной книжки.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
